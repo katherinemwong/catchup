@@ -1,8 +1,8 @@
 //
-//  ListView.swift
+//  ListViewFriends.swift
 //  catchup
 //
-//  Created by Kat Kat on 4/9/22.
+//  Created by John Adams on 4/10/22.
 //
 
 import SwiftUI
@@ -10,7 +10,7 @@ import SwiftUI
 /*
  View for the list of people in whole
  */
-struct ListView: View {
+struct ListViewFriends: View {
     
     @EnvironmentObject var listViewModel: ListViewModel
     
@@ -36,10 +36,10 @@ struct ListView: View {
 }
 
 
-struct ListView_Previews: PreviewProvider {
+struct ListViewFriends_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
-            ListView()
+            ListViewFriends()
         }
         .environmentObject(ListViewModel())
     }

@@ -25,7 +25,7 @@ class ListViewModel: ObservableObject {
         let newPeople = [
             personModel(name: "Katherine W.", dateToContact: Date.now.addingTimeInterval(30), frequency: 3),
             personModel(name: "John A.", dateToContact: Date.now.addingTimeInterval(100), frequency: 10),
-            personModel(name: "Jackson F.", dateToContact: Date.now.addingTimeInterval(100), frequency: 14)
+            personModel(name: "Add your family!", dateToContact: Date.now.addingTimeInterval(100), frequency: 14)
         ]
         familyMembers.append(contentsOf: newPeople)
     }
@@ -52,9 +52,9 @@ class ListViewModel: ObservableObject {
     func getFriends() {
         
         let newPeople = [
-            personModel(name: "Friend 1", dateToContact: Date.now.addingTimeInterval(30),  frequency: 3),
-            personModel(name: "Friend 2", dateToContact: Date.now.addingTimeInterval(100), frequency: 10),
-            personModel(name: "Friend 3", dateToContact: Date.now.addingTimeInterval(100), frequency: 14)
+            personModel(name: "Katherine W.", dateToContact: Date.now.addingTimeInterval(30),  frequency: 3),
+            personModel(name: "John A.", dateToContact: Date.now.addingTimeInterval(100), frequency: 10),
+            personModel(name: "Add your friends!", dateToContact: Date.now.addingTimeInterval(100), frequency: 14)
         ]
         friends.append(contentsOf: newPeople)
     }
