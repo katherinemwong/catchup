@@ -99,6 +99,9 @@ class ListViewModel: ObservableObject {
         friends.append(newPerson)
         saveItems()
     }
+    func addFriend(newPerson: personModel) {
+        friends.append(newPerson)
+    }
     
     //converts list to .json
     func saveItems() {

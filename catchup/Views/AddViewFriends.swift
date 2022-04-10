@@ -97,7 +97,7 @@ struct AddViewFriends: View {
             let num = Int(frequencyFieldText) ?? 7
             let date: Date = Date.now.addingTimeInterval(Double(24*60*60*num))
             let person = personModel(name: textFieldText, dateToContact: date, frequency: num)
-            listViewModel.addPerson(newPerson: person)
+            listViewModel.addFriend(newPerson: person)
             presentationMode.wrappedValue.dismiss()
             addNotification(person: person)
         }

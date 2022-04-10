@@ -19,11 +19,11 @@ struct ListViewFriends: View {
         
         List {
             //generate a new entry into the list for each person
-            ForEach(listViewModel.familyMembers) {person in
+            ForEach(listViewModel.friends) {person in
                 ListRowView(person: person)
             }
-            .onDelete(perform: listViewModel.deletePerson)
-            .onMove(perform: listViewModel.movePerson)
+            .onDelete(perform: listViewModel.deleteFriend)
+            .onMove(perform: listViewModel.moveFriend)
             //ListRowView(name: "katherchin")
         }
             .listStyle(PlainListStyle())
