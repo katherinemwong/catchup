@@ -16,15 +16,16 @@ struct ListView: View {
 
     
     var body: some View {
-        ZStack {
-            List {
-                ForEach(listViewModel.familyMembers) {person in
-                    ListRowView(person: person)
-                }
-                .onDelete(perform: listViewModel.deletePerson)
-                .onMove(perform: listViewModel.movePerson)
-                //ListRowView(name: "katherchin")
+        
+        
+        List {
+            //generate a new entry into the list for each person
+            ForEach(listViewModel.familyMembers) {person in
+                ListRowView(person: person)
             }
+            .onDelete(perform: listViewModel.deletePerson)
+            .onMove(perform: listViewModel.movePerson)
+            //ListRowView(name: "katherchin")
         }
             .listStyle(PlainListStyle())
             .navigationTitle("catch-up with")
