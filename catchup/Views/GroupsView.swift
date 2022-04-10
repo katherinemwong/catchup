@@ -16,31 +16,32 @@ struct GroupsView: View {
     
     var body: some View {
         ScrollView{
-            ZStack{
-                Rectangle()
-                    .frame(height: 300)
-                    .cornerRadius(30)
-                    .padding()
-                    .foregroundColor(Color("skyBlue"))
-                VStack{
-                    HStack{
-                        Text("Family")
-                            .font(Font.custom("Arial Rounded MT Bold", size: 50))
-                            .offset(x: 20)
-                            .foregroundColor(.white)
-                    
+            NavigationLink(destination: ListView()) {
+                ZStack{
+                    Rectangle()
+                        .frame(height: 300)
+                        .cornerRadius(30)
+                        .padding()
+                        .foregroundColor(Color("skyBlue"))
+                    VStack{
+                        HStack{
+                            Text("Family")
+                                .font(Font.custom("Arial Rounded MT Bold", size: 50))
+                                .offset(x: 20)
+                                .foregroundColor(.white)
+                        
+                            Spacer()
+                        }
+                        
+                        GroupsRowView(person: personModel(name: "Katsu", frequency: 4))
+                        .padding()
                         Spacer()
                     }
-                    
-                    GroupsRowView(person: personModel(name: "Katsu", frequency: 4))
-                    .padding()
+                    .frame(height: 250)
+                    .padding(.horizontal)
                     Spacer()
                 }
-                .frame(height: 250)
-                .padding(.horizontal)
-                Spacer()
             }
-            
             ZStack{
                 Rectangle()
                     .frame(height: 300)

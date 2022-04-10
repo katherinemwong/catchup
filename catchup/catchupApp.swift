@@ -15,7 +15,7 @@ struct catchupApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                ListView()
+                GroupsView()
             }
             .environmentObject(listViewModel)
         }
