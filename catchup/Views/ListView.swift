@@ -18,6 +18,7 @@ struct ListView: View {
         
         
         List {
+            //generate a new entry into the list for each person
             ForEach(listViewModel.familyMembers) {person in
                 ListRowView(person: person)
             }
