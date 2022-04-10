@@ -11,6 +11,9 @@ import SwiftUI
  */
 struct AddView: View {
     
+    @State var alertTitle: String = ""
+    @State var showAlert: Bool = false
+    
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var listViewModel: ListViewModel
     @State var textFieldText: String = ""
@@ -18,7 +21,7 @@ struct AddView: View {
     @State var frequencyFieldText: String = ""
     
     var body: some View {
-        ScrollView {
+        VStack{
             VStack {
                 TextField("name", text: $textFieldText)
                     .padding(.horizontal)
@@ -42,10 +45,14 @@ struct AddView: View {
                 } )
             }
             .padding()
-            
+            .navigationTitle("Add a Family Member 👤")
+            .alert(isPresented: $showAlert, content: getAlert)
+            Spacer()
         }
-        .navigationTitle("Add a Family Member 👤")
-        
+    }
+    
+    func getAlert() -> Alert {
+        return Alert(title: Text(alertTitle))
     }
     
     func Notification() {
@@ -80,7 +87,11 @@ struct AddView: View {
     }
     
     func fieldsAppropriate() -> Bool {
-        if textFieldText.count < 1 {return false}
+        if textFieldText.count < 1 {
+            alertTitle = "😵‍💫\nYou must include a name for your family member."
+            showAlert.toggle()
+            return false
+        }
         return true
     }
 }

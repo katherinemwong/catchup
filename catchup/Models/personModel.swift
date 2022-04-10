@@ -9,7 +9,7 @@ import Foundation
 
 struct personModel: Identifiable {
     let name: String
-    var dateContacted: Date?
+    var dateToContact: Date?
     var frequency: Int
     var id: String = UUID().uuidString
 }
