@@ -53,11 +53,11 @@ struct AddViewFriends: View {
         }
     }
     
-    func getAlert() -> Alert {
+    private func getAlert() -> Alert {
         return Alert(title: Text(alertTitle))
     }
     
-    func Notification() {
+    private func Notification() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge,
             .sound]) { success, error in
                 if success {
@@ -77,21 +77,22 @@ struct AddViewFriends: View {
     }
     
     //Submit Request for Notification
-    func addNotification(person: personModel) {
+   private func addNotification(person: personModel) {
         let content = UNMutableNotificationContent()
         content.title = "catchup"
         content.subtitle = "Catch-up with \(textFieldText)!"
         content.sound = UNNotificationSound.default
-        
+        var interval: Double = Double(person.frequency * 24 * 60 * 60)
+        interval += 40
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval:
-                                                            Double(person.frequency)*24*60*60 + 30, repeats: false)
+                                                            interval, repeats: false)
         
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request)
         notificationHandler.recordNotification(person: person, notif: request)
     }
     
-    func saveButtonPressed() {
+   private func saveButtonPressed() {
         Notification() // popup to change notifications
         if fieldsAppropriate() {
             let num = Int(frequencyFieldText) ?? 7
@@ -103,7 +104,7 @@ struct AddViewFriends: View {
         }
     }
     
-    func fieldsAppropriate() -> Bool {
+    private func fieldsAppropriate() -> Bool {
         if textFieldText.count < 1 {
             alertTitle = "😵‍💫\nYou must include a name for your friend."
             showAlert.toggle()

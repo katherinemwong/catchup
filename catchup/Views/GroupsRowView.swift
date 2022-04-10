@@ -17,6 +17,7 @@ struct GroupsRowView: View {
         ZStack{
             HStack {
                 Text(person.name)
+                    .padding(5)
             }
             .foregroundColor(Color.white)
             .cornerRadius(8)

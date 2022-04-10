@@ -53,11 +53,11 @@ struct AddView: View {
         }
     }
     
-    func getAlert() -> Alert {
+   private func getAlert() -> Alert {
         return Alert(title: Text(alertTitle))
     }
     
-    func Notification() {
+  private func Notification() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge,
             .sound]) { success, error in
                 if success {
@@ -77,12 +77,13 @@ struct AddView: View {
     }
     
     //Submit Request for Notification
-    func addNotification(person: personModel) {
+    private func addNotification(person: personModel) {
         let content = UNMutableNotificationContent()
         content.title = "catchup"
         content.subtitle = "Catch-up with \(textFieldText)!"
         content.sound = UNNotificationSound.default
-        let interval: Double = Double(person.frequency * 24 * 60 * 60 + 20)
+        var interval: Double = Double(person.frequency * 24 * 60 * 60)
+        interval += 40
         print(interval)
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval:
                                                             interval, repeats: false)
@@ -92,7 +93,7 @@ struct AddView: View {
         notificationHandler.recordNotification(person: person, notif: request)
     }
     
-    func saveButtonPressed() {
+  private func saveButtonPressed() {
         Notification() // popup to change notifications
         if fieldsAppropriate() {
             let num = Int(frequencyFieldText) ?? 7
@@ -104,7 +105,7 @@ struct AddView: View {
         }
     }
     
-    func fieldsAppropriate() -> Bool {
+    private func fieldsAppropriate() -> Bool {
         if textFieldText.count < 1 {
             alertTitle = "😵‍💫\nYou must include a name for your family member."
             showAlert.toggle()

@@ -33,8 +33,11 @@ struct GroupsView: View {
                             Spacer()
                         }
                         
-                        GroupsRowView(person: personModel(name: "Katsu", dateToContact: Date.now.addingTimeInterval(400), frequency: 4))
-                        .padding()
+                            ForEach(listViewModel.familyMembers.prefix(4)) {
+                                person in
+                                GroupsRowView(person: person)
+                            }
+                        
                         Spacer()
                     }
                     .frame(height: 250)
@@ -59,8 +62,11 @@ struct GroupsView: View {
                                 .foregroundColor(.white)
                             Spacer()
                         }
-                        GroupsRowView(person: personModel(name: "Katsu", dateToContact: Date.now.addingTimeInterval(40), frequency: 4))
-                        .padding()
+                        
+                        ForEach(listViewModel.friends.prefix(4)) {
+                            person in
+                            GroupsRowView(person: person)
+                        }
                         Spacer()
                     }
                     .frame(height: 250)
