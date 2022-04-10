@@ -7,7 +7,13 @@
 
 import SwiftUI
 
-struct GroupsListView: View {
+struct GroupsView: View {
+    
+    
+    //use this variable to access the ListViewModel.familyMembers list
+    //you can create a GroupListView File (similar to the ListView) to make entried into the list. 
+    @EnvironmentObject var listViewModel: ListViewModel
+    
     var body: some View {
         ScrollView{
             ZStack{
@@ -59,6 +65,9 @@ struct GroupsListView: View {
 
 struct GroupsListView_Previews: PreviewProvider {
     static var previews: some View {
-        GroupsListView()
+        NavigationView{
+            GroupsView()
+        }
+        .environmentObject(ListViewModel())
     }
 }
