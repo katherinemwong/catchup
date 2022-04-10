@@ -15,6 +15,8 @@ struct ListView: View {
     @EnvironmentObject var listViewModel: ListViewModel
     
     var body: some View {
+        
+        
         List {
             ForEach(listViewModel.familyMembers) {person in
                 ListRowView(person: person)

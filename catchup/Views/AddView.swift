@@ -47,10 +47,23 @@ struct AddView: View {
         
     }
     
-    func saveButtonPressed() {
-        
-        listViewModel.addPerson(name: textFieldText, frequency: Int(frequencyFieldText) ?? 7)
+    func Notification() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge,
+            .sound]) { success, error in
+                if success {
+                } else if let error = error {
+                    print(error.localizedDescription)
+                }
+            }
     }
+    
+    func saveButtonPressed() {
+        Notification()
+        listViewModel.addPerson(name: textFieldText, frequency: Int(frequencyFieldText) ?? 7)
+        
+        // popup to change notifications
+    }
+    
 }
 
 struct AddView_Previews: PreviewProvider {
