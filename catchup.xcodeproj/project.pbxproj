@@ -14,6 +14,12 @@
 		CBE266812801FF2000E24EC1 /* catchupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE266802801FF2000E24EC1 /* catchupTests.swift */; };
 		CBE2668B2801FF2000E24EC1 /* catchupUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE2668A2801FF2000E24EC1 /* catchupUITests.swift */; };
 		CBE2668D2801FF2000E24EC1 /* catchupUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE2668C2801FF2000E24EC1 /* catchupUITestsLaunchTests.swift */; };
+		CBE2669D2802125C00E24EC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBE2669C2802125C00E24EC1 /* LaunchScreen.storyboard */; };
+		CBE266A42802611C00E24EC1 /* personModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE266A32802611C00E24EC1 /* personModel.swift */; };
+		CBE266AC280262A400E24EC1 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE266AB280262A400E24EC1 /* AddView.swift */; };
+		CBE266AE280262D800E24EC1 /* ListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE266AD280262D800E24EC1 /* ListRowView.swift */; };
+		CBE266B02802631200E24EC1 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE266AF2802631200E24EC1 /* ListView.swift */; };
+		CBE266B42802760600E24EC1 /* ListViewFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE266B32802760600E24EC1 /* ListViewFile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +50,13 @@
 		CBE266862801FF2000E24EC1 /* catchupUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = catchupUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBE2668A2801FF2000E24EC1 /* catchupUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = catchupUITests.swift; sourceTree = "<group>"; };
 		CBE2668C2801FF2000E24EC1 /* catchupUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = catchupUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CBE2669928020A1700E24EC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		CBE2669C2802125C00E24EC1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CBE266A32802611C00E24EC1 /* personModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = personModel.swift; sourceTree = "<group>"; };
+		CBE266AB280262A400E24EC1 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		CBE266AD280262D800E24EC1 /* ListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowView.swift; sourceTree = "<group>"; };
+		CBE266AF2802631200E24EC1 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		CBE266B32802760600E24EC1 /* ListViewFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewFile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,9 +107,14 @@
 		CBE2666E2801FF1900E24EC1 /* catchup */ = {
 			isa = PBXGroup;
 			children = (
+				CBE2669928020A1700E24EC1 /* Info.plist */,
+				CBE2669C2802125C00E24EC1 /* LaunchScreen.storyboard */,
 				CBE2666F2801FF1900E24EC1 /* catchupApp.swift */,
 				CBE266712801FF1900E24EC1 /* ContentView.swift */,
 				CBE266732801FF1F00E24EC1 /* Assets.xcassets */,
+				CBE266B2280275F500E24EC1 /* ViewModels */,
+				CBE266A2280260FC00E24EC1 /* Views */,
+				CBE266A0280260E200E24EC1 /* Models */,
 				CBE266752801FF1F00E24EC1 /* Preview Content */,
 			);
 			path = catchup;
@@ -125,6 +143,32 @@
 				CBE2668C2801FF2000E24EC1 /* catchupUITestsLaunchTests.swift */,
 			);
 			path = catchupUITests;
+			sourceTree = "<group>";
+		};
+		CBE266A0280260E200E24EC1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CBE266A32802611C00E24EC1 /* personModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CBE266A2280260FC00E24EC1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CBE266AB280262A400E24EC1 /* AddView.swift */,
+				CBE266AD280262D800E24EC1 /* ListRowView.swift */,
+				CBE266AF2802631200E24EC1 /* ListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CBE266B2280275F500E24EC1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				CBE266B32802760600E24EC1 /* ListViewFile.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,6 +275,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBE2669D2802125C00E24EC1 /* LaunchScreen.storyboard in Resources */,
 				CBE266772801FF1F00E24EC1 /* Preview Assets.xcassets in Resources */,
 				CBE266742801FF1F00E24EC1 /* Assets.xcassets in Resources */,
 			);
@@ -257,7 +302,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBE266AC280262A400E24EC1 /* AddView.swift in Sources */,
+				CBE266B42802760600E24EC1 /* ListViewFile.swift in Sources */,
 				CBE266722801FF1900E24EC1 /* ContentView.swift in Sources */,
+				CBE266B02802631200E24EC1 /* ListView.swift in Sources */,
+				CBE266AE280262D800E24EC1 /* ListRowView.swift in Sources */,
+				CBE266A42802611C00E24EC1 /* personModel.swift in Sources */,
 				CBE266702801FF1900E24EC1 /* catchupApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -419,9 +469,11 @@
 				DEVELOPMENT_ASSET_PATHS = "\"catchup/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = catchup/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "catch-up";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -447,9 +499,11 @@
 				DEVELOPMENT_ASSET_PATHS = "\"catchup/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = catchup/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "catch-up";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

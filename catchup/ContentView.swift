@@ -2,20 +2,20 @@
 //  ContentView.swift
 //  catchup
 //
-//  Created by Kat Kat on 4/9/22.
+//  Created by Kat on 4/9/22.
 //
 
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        Text("Welcome")
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .previewInterfaceOrientation(.portrait)
     }
 }

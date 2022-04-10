@@ -11,7 +11,12 @@ import SwiftUI
 struct catchupApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView {
+                ListView()
+            }
         }
     }
+    
+    
+    
 }
