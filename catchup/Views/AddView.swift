@@ -14,6 +14,7 @@ struct AddView: View {
     @State var textFieldText: String = ""
     
     var body: some View {
+        Text("Hello John")
         ScrollView {
             VStack {
                 TextField("name", text: $textFieldText)
