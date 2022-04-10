@@ -30,7 +30,7 @@ struct ListViewFriends: View {
             .navigationTitle("catch-up with")
             .navigationBarItems(leading: EditButton(),
                                 trailing:
-                                    NavigationLink("Add", destination: AddView())
+                                    NavigationLink("Add", destination: AddViewFriends())
             )
     }
 }
