@@ -11,6 +11,7 @@ import Foundation
 class ListViewModel: ObservableObject {
     
     @Published var familyMembers: [personModel] = []
+    @Published var friends: [personModel] = []
     
     init() {
         getItems()
