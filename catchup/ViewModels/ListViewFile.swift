@@ -28,6 +28,7 @@ class ListViewModel: ObservableObject {
     
     func deletePerson(indexSet: IndexSet) {
         familyMembers.remove(atOffsets: indexSet)
+        
     }
     
     func movePerson(from: IndexSet, to: Int) {
