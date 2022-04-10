@@ -21,19 +21,23 @@ struct GroupsView: View {
                     .frame(height: 300)
                     .cornerRadius(30)
                     .padding()
-                    .foregroundColor(Color("darkBlue"))
+                    .foregroundColor(Color("skyBlue"))
                 VStack{
                     HStack{
                         Text("Family")
                             .font(Font.custom("Arial Rounded MT Bold", size: 50))
                             .offset(x: 20)
                             .foregroundColor(.white)
+                    
                         Spacer()
                     }
+                    
+                    GroupsRowView(person: personModel(name: "Katsu", frequency: 4))
                     .padding()
                     Spacer()
                 }
-                .frame(height: 300)
+                .frame(height: 250)
+                .padding(.horizontal)
                 Spacer()
             }
             
@@ -42,7 +46,7 @@ struct GroupsView: View {
                     .frame(height: 300)
                     .cornerRadius(30)
                     .padding()
-                    .foregroundColor(Color("darkBlue"))
+                    .foregroundColor(Color("skyBlue"))
                 VStack{
                     HStack{
                         Text("Friends")
@@ -51,10 +55,13 @@ struct GroupsView: View {
                             .foregroundColor(.white)
                         Spacer()
                     }
+                    GroupsRowView(person: personModel(name: "Katsu", frequency: 4))
                     .padding()
                     Spacer()
                 }
-                .frame(height: 300)
+                .frame(height: 250)
+                .padding(.horizontal)
+
                 Spacer()
             }
         }

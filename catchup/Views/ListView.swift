@@ -13,30 +13,33 @@ import SwiftUI
 struct ListView: View {
     
     @EnvironmentObject var listViewModel: ListViewModel
+
     
     var body: some View {
-        
-        
-        List {
-            ForEach(listViewModel.familyMembers) {person in
-                ListRowView(person: person)
+        ZStack {
+            List {
+                ForEach(listViewModel.familyMembers) {person in
+                    ListRowView(person: person)
+                }
+                .onDelete(perform: listViewModel.deletePerson)
+                .onMove(perform: listViewModel.movePerson)
+                //ListRowView(name: "katherchin")
             }
-            .onDelete(perform: listViewModel.deletePerson)
-            .onMove(perform: listViewModel.movePerson)
-            //ListRowView(name: "katherchin")
         }
-        .listStyle(PlainListStyle())
-        .navigationTitle("catch-up with Family")
-        .navigationBarItems(leading: EditButton(),
-                            trailing:
-                                NavigationLink("Add", destination: AddView())
-        )
+            .listStyle(PlainListStyle())
+            .navigationTitle("catch-up with")
+            .navigationBarItems(leading: EditButton(),
+                                trailing:
+                                    NavigationLink("Add", destination: AddView())
+            )
     }
 }
+
 
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
+            GroupsView()
             ListView()
         }
         .environmentObject(ListViewModel())
