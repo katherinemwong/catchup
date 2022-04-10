@@ -17,6 +17,7 @@ class ListViewModel: ObservableObject {
     }
     
     func getItems() {
+        
         let newPeople = [
             personModel(name: "Katherine W.", frequency: 3),
             personModel(name: "John A.", frequency: 10),
