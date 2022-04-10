@@ -50,7 +50,7 @@
 		CBE266862801FF2000E24EC1 /* catchupUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = catchupUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBE2668A2801FF2000E24EC1 /* catchupUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = catchupUITests.swift; sourceTree = "<group>"; };
 		CBE2668C2801FF2000E24EC1 /* catchupUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = catchupUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		CBE2669928020A1700E24EC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		CBE2669928020A1700E24EC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBE2669C2802125C00E24EC1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CBE266A32802611C00E24EC1 /* personModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = personModel.swift; sourceTree = "<group>"; };
 		CBE266AB280262A400E24EC1 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
@@ -107,10 +107,10 @@
 		CBE2666E2801FF1900E24EC1 /* catchup */ = {
 			isa = PBXGroup;
 			children = (
-				CBE2669928020A1700E24EC1 /* Info.plist */,
 				CBE2669C2802125C00E24EC1 /* LaunchScreen.storyboard */,
 				CBE2666F2801FF1900E24EC1 /* catchupApp.swift */,
 				CBE266712801FF1900E24EC1 /* ContentView.swift */,
+				CBE2669928020A1700E24EC1 /* Info.plist */,
 				CBE266732801FF1F00E24EC1 /* Assets.xcassets */,
 				CBE266B2280275F500E24EC1 /* ViewModels */,
 				CBE266A2280260FC00E24EC1 /* Views */,
