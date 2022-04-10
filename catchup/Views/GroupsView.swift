@@ -41,7 +41,9 @@ struct GroupsView: View {
                     .padding(.horizontal)
                     Spacer()
                 }
+                .onAppear(perform: listViewModel.getFamily)
             }
+            
             NavigationLink(destination: ListViewFriends()) {
                 ZStack{
                     Rectangle()
@@ -67,6 +69,7 @@ struct GroupsView: View {
                     Spacer()
                 }
             }
+            .onTapGesture(perform: listViewModel.getFriends)
         }
         .background(Color("skyBlue").opacity(0.4))
         

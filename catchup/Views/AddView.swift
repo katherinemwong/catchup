@@ -84,7 +84,7 @@ struct AddView: View {
         content.sound = UNNotificationSound.default
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval:
-                                                            Double(person.frequency)*24*60*60+30, repeats: false)
+                                                            Double(person.frequency)*24*60*60+30.0, repeats: false)
         
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request)

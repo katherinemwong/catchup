@@ -16,8 +16,6 @@ struct catchupApp: App {
     var body: some Scene {
         WindowGroup {
             
-            
-            
             NavigationView {
                 GroupsView()
             }
