@@ -82,9 +82,10 @@ struct AddView: View {
         content.title = "catchup"
         content.subtitle = "Catch-up with \(textFieldText)!"
         content.sound = UNNotificationSound.default
-        
+        let interval: Double = Double(person.frequency * 24 * 60 * 60 + 20)
+        print(interval)
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval:
-                                                            Double(person.frequency)*24*60*60+30.0, repeats: false)
+                                                            interval, repeats: false)
         
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request)

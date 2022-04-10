@@ -16,11 +16,7 @@ class ListViewModel: ObservableObject {
     @Published var familyMembers: [personModel] = []
     
     let friendsKey: String = "friends_list"
-    @Published var friends: [personModel] = [] {
-        didSet {
-            saveItems()
-        }
-    }
+    @Published var friends: [personModel] = []
     
     init() {
         getFamily()
@@ -81,7 +77,7 @@ class ListViewModel: ObservableObject {
             let savedItems = try? JSONDecoder().decode([personModel].self, from: data)
         else { return }
         
-        self.familyMembers = savedItems
+        friends = savedItems
     }
     
     func deleteFriend(indexSet: IndexSet) {
@@ -107,7 +103,6 @@ class ListViewModel: ObservableObject {
     func saveItems() {
         if let encodedFamilyData = try? JSONEncoder().encode(familyMembers) {
             UserDefaults.standard.set(encodedFamilyData, forKey: familyMembersKey)
-            print(encodedFamilyData.self)
         }
         if let encodedFriendData = try? JSONEncoder().encode(friends) {
             UserDefaults.standard.set(encodedFriendData, forKey: friendsKey)

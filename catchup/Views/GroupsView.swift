@@ -68,8 +68,8 @@ struct GroupsView: View {
 
                     Spacer()
                 }
+                .onAppear(perform: listViewModel.getFriends)
             }
-            .onTapGesture(perform: listViewModel.getFriends)
         }
         .background(Color("skyBlue").opacity(0.4))
         
