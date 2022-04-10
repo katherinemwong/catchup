@@ -11,7 +11,10 @@ import SwiftUI
  */
 struct AddView: View {
     
+    @EnvironmentObject var listViewModel: ListViewModel
     @State var textFieldText: String = ""
+    
+    @State var frequencyFieldText: String = ""
     
     var body: some View {
         ScrollView {
@@ -22,8 +25,13 @@ struct AddView: View {
                     .background(Color("skyBlue").opacity(0.3))
                 .cornerRadius(6)
                 
-                Button(action: {
-                },   label: {
+                TextField("contact this person every # of days", text: $frequencyFieldText)
+                    .padding(.horizontal)
+                    .frame(height: 60)
+                    .background(Color("skyBlue").opacity(0.3))
+                .cornerRadius(6)
+                
+                Button(action: saveButtonPressed,   label: {
                     Text("Save")
                         .foregroundColor(.white)
                         .frame(width: 65, height: 35)
@@ -38,6 +46,11 @@ struct AddView: View {
         .navigationTitle("Add a Family Member 👤")
         
     }
+    
+    func saveButtonPressed() {
+        
+        listViewModel.addPerson(name: textFieldText, frequency: Int(frequencyFieldText) ?? 7)
+    }
 }
 
 struct AddView_Previews: PreviewProvider {
@@ -45,7 +58,7 @@ struct AddView_Previews: PreviewProvider {
         NavigationView{
             AddView()
         }
-        
+        .environmentObject(ListViewModel())
     }
 }
 

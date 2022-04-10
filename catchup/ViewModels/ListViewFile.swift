@@ -33,4 +33,9 @@ class ListViewModel: ObservableObject {
     func movePerson(from: IndexSet, to: Int) {
         familyMembers.move(fromOffsets: from, toOffset: to)
     }
+    
+    func addPerson(name: String, frequency: Int) {
+        let newPerson = personModel(name: name, frequency: frequency)
+        familyMembers.append(newPerson)
+    }
 }
