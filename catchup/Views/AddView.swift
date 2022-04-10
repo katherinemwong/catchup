@@ -11,6 +11,7 @@ import SwiftUI
  */
 struct AddView: View {
     
+    @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var listViewModel: ListViewModel
     @State var textFieldText: String = ""
     
@@ -48,8 +49,18 @@ struct AddView: View {
     }
     
     func saveButtonPressed() {
+        if fieldsAppropriate() {
+            listViewModel.addPerson(name: textFieldText, frequency: Int(frequencyFieldText) ?? 7)
+            presentationMode.wrappedValue.dismiss()
+        }
+    }
+    
+    func fieldsAppropriate() -> Bool {
+        if textFieldText.count < 3 {return false}
+        print("step 1")
+        print("\(Int(textFieldText))")
         
-        listViewModel.addPerson(name: textFieldText, frequency: Int(frequencyFieldText) ?? 7)
+        return true
     }
 }
 
