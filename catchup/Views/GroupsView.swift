@@ -33,7 +33,7 @@ struct GroupsView: View {
                             Spacer()
                         }
                         
-                        GroupsRowView(person: personModel(name: "Katsu", frequency: 4))
+                        GroupsRowView(person: personModel(name: "Katsu", dateToContact: Date.now.addingTimeInterval(400), frequency: 4))
                         .padding()
                         Spacer()
                     }
@@ -56,7 +56,7 @@ struct GroupsView: View {
                             .foregroundColor(.white)
                         Spacer()
                     }
-                    GroupsRowView(person: personModel(name: "Katsu", frequency: 4))
+                    GroupsRowView(person: personModel(name: "Katsu", dateToContact: Date.now.addingTimeInterval(40), frequency: 4))
                     .padding()
                     Spacer()
                 }

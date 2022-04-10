@@ -96,7 +96,9 @@ struct AddView: View {
     func saveButtonPressed() {
         Notification() // popup to change notifications
         if fieldsAppropriate() {
-            listViewModel.addPerson(name: textFieldText, frequency: Int(frequencyFieldText) ?? 7)
+            let num = Int(frequencyFieldText) ?? 7
+            let date: Date = Date.now.addingTimeInterval(Double(24*60*60*num))
+            listViewModel.addPerson(name: textFieldText, date: date, frequency: num)
             presentationMode.wrappedValue.dismiss()
         }
     }

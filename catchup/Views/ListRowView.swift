@@ -47,7 +47,7 @@ func checkDate(name: String, contactDate: Date?) {
 // This generates the preview window
 struct ListRowView_Previews: PreviewProvider {
     static var previews: some View {
-        ListRowView(person: personModel(name: "Katherine W.", frequency: 4))
+        ListRowView(person: personModel(name: "Katherine W.", dateToContact: Date.now.addingTimeInterval(800), frequency: 4))
             .previewLayout(.sizeThatFits)
     }
         

@@ -21,9 +21,9 @@ class ListViewModel: ObservableObject {
     func getFamily() {
         
         let newPeople = [
-            personModel(name: "Katherine W.", frequency: 3),
-            personModel(name: "John A.", frequency: 10),
-            personModel(name: "Jackson F.", frequency: 14)
+            personModel(name: "Katherine W.", dateToContact: Date.now.addingTimeInterval(30), frequency: 3),
+            personModel(name: "John A.", dateToContact: Date.now.addingTimeInterval(100), frequency: 10),
+            personModel(name: "Jackson F.", dateToContact: Date.now.addingTimeInterval(100), frequency: 14)
         ]
         familyMembers.append(contentsOf: newPeople)
     }
@@ -37,17 +37,17 @@ class ListViewModel: ObservableObject {
         familyMembers.move(fromOffsets: from, toOffset: to)
     }
     
-    func addPerson(name: String, frequency: Int) {
-        let newPerson = personModel(name: name, frequency: frequency)
+    func addPerson(name: String, date: Date, frequency: Int) {
+        let newPerson = personModel(name: name, dateToContact: date, frequency: frequency)
         familyMembers.append(newPerson)
     }
     
     func getFriends() {
         
         let newPeople = [
-            personModel(name: "Friend 1", frequency: 3),
-            personModel(name: "Friend 2", frequency: 10),
-            personModel(name: "Friend 3", frequency: 14)
+            personModel(name: "Friend 1", dateToContact: Date.now.addingTimeInterval(30),  frequency: 3),
+            personModel(name: "Friend 2", dateToContact: Date.now.addingTimeInterval(100), frequency: 10),
+            personModel(name: "Friend 3", dateToContact: Date.now.addingTimeInterval(100), frequency: 14)
         ]
         friends.append(contentsOf: newPeople)
     }
@@ -61,8 +61,8 @@ class ListViewModel: ObservableObject {
         friends.move(fromOffsets: from, toOffset: to)
     }
     
-    func addFriend(name: String, frequency: Int) {
-        let newPerson = personModel(name: name, frequency: frequency)
+    func addFriend(name: String, date: Date, frequency: Int) {
+        let newPerson = personModel(name: name, dateToContact: date, frequency: frequency)
         friends.append(newPerson)
     }
     

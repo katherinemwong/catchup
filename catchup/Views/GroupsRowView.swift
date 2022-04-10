@@ -26,7 +26,7 @@ struct GroupsRowView: View {
 
 struct GroupsRowView_Previews: PreviewProvider {
     static var previews: some View {
-        GroupsRowView(person: personModel(name: "Katherine W.", frequency: 4))
+        GroupsRowView(person: personModel(name: "Katherine W.", dateToContact: Date.now.addingTimeInterval(600), frequency: 4))
             .previewLayout(.sizeThatFits)
     }
 }
