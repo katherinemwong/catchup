@@ -17,17 +17,14 @@ struct ListRowView: View {
     let person: personModel
     //let name: String
     //let contactDate: Date?
-    
     //checkDate(name, contactDate)
     
     var body: some View {
         ZStack{
             HStack {
-                Spacer()
                 Text(person.name)
                 Spacer()
                 Text("contact every \(person.frequency) days")
-                Spacer()
             }
             .foregroundColor(Color("darkBlue"))
             .cornerRadius(8)
