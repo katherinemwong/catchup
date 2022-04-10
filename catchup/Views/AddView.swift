@@ -16,6 +16,7 @@ struct AddView: View {
     
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var listViewModel: ListViewModel
+    @EnvironmentObject var notificationHandler: NotificationHandler
     @State var textFieldText: String = ""
     
     @State var frequencyFieldText: String = ""
@@ -75,7 +76,7 @@ struct AddView: View {
     }
     
     //Submit Request for Notification
-    func addNotification() {
+    func addNotification(person: personModel) {
         let content = UNMutableNotificationContent()
         content.title = "catchup"
         content.subtitle = "Catch-up with \(textFieldText)!"
@@ -86,12 +87,7 @@ struct AddView: View {
         
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request)
-        
-    }
-    
-    //Remove Request for Notification
-    func deleteNotification() {
-        
+        notificationHandler.recordNotification(person: person, notif: request)
     }
     
     func saveButtonPressed() {
@@ -99,8 +95,10 @@ struct AddView: View {
         if fieldsAppropriate() {
             let num = Int(frequencyFieldText) ?? 7
             let date: Date = Date.now.addingTimeInterval(Double(24*60*60*num))
-            listViewModel.addPerson(name: textFieldText, date: date, frequency: num)
+            let person = personModel(name: textFieldText, dateToContact: date, frequency: num)
+            listViewModel.addPerson(newPerson: person)
             presentationMode.wrappedValue.dismiss()
+            addNotification(person: person)
         }
     }
     

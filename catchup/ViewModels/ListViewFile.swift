@@ -10,6 +10,8 @@ import Foundation
  */
 class ListViewModel: ObservableObject {
     
+    var notificationHandler: NotificationHandler = NotificationHandler()
+    
     @Published var familyMembers: [personModel] = []
     @Published var friends: [personModel] = []
     
@@ -29,6 +31,7 @@ class ListViewModel: ObservableObject {
     }
     
     func deletePerson(indexSet: IndexSet) {
+        notificationHandler.activeNotifications.removeValue(forKey: familyMembers[indexSet.first!])
         familyMembers.remove(atOffsets: indexSet)
         
     }
@@ -39,6 +42,10 @@ class ListViewModel: ObservableObject {
     
     func addPerson(name: String, date: Date, frequency: Int) {
         let newPerson = personModel(name: name, dateToContact: date, frequency: frequency)
+        familyMembers.append(newPerson)
+    }
+    
+    func addPerson(newPerson: personModel) {
         familyMembers.append(newPerson)
     }
     

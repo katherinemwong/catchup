@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct personModel: Identifiable {
+struct personModel: Identifiable, Hashable {
     let name: String
     var dateToContact: Date
     var frequency: Int

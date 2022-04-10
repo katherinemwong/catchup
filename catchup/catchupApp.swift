@@ -10,6 +10,7 @@ import SwiftUI
 @main
 struct catchupApp: App {
     
+    @State var notificationHandler: NotificationHandler = NotificationHandler()
     @State var listViewModel: ListViewModel = ListViewModel()
     
     var body: some Scene {
@@ -18,6 +19,7 @@ struct catchupApp: App {
                 GroupsView()
             }
             .environmentObject(listViewModel)
+            .environmentObject(notificationHandler)
         }
     }
     

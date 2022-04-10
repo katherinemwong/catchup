@@ -13,7 +13,6 @@ import SwiftUI
 struct ListView: View {
     
     @EnvironmentObject var listViewModel: ListViewModel
-
     
     var body: some View {
         
@@ -46,5 +45,3 @@ struct ListView_Previews: PreviewProvider {
         .environmentObject(ListViewModel())
     }
 }
-
-

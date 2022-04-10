@@ -163,9 +163,9 @@
 			isa = PBXGroup;
 			children = (
 				CBE266AB280262A400E24EC1 /* AddView.swift */,
+				CBE266AF2802631200E24EC1 /* ListView.swift */,
 				CBE266AD280262D800E24EC1 /* ListRowView.swift */,
 				CBE266B52802D79C00E24EC1 /* GroupsRowView.swift */,
-				CBE266AF2802631200E24EC1 /* ListView.swift */,
 				7630D1D42802BCD400C92C99 /* GroupsView.swift */,
 			);
 			path = Views;
