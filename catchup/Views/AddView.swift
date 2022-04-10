@@ -48,6 +48,16 @@ struct AddView: View {
         
     }
     
+    func Notification() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge,
+            .sound]) { success, error in
+                if success {
+                } else if let error = error {
+                    print(error.localizedDescription)
+                }
+            }
+    }
+    
     func saveButtonPressed() {
         if fieldsAppropriate() {
             listViewModel.addPerson(name: textFieldText, frequency: Int(frequencyFieldText) ?? 7)
@@ -59,9 +69,8 @@ struct AddView: View {
         if textFieldText.count < 3 {return false}
         print("step 1")
         print("\(Int(textFieldText))")
-        
-        return true
     }
+        // popup to change notifications
 }
 
 struct AddView_Previews: PreviewProvider {
