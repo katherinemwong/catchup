@@ -59,6 +59,7 @@ struct AddView: View {
     }
     
     func saveButtonPressed() {
+        Notification() // popup to change notifications
         if fieldsAppropriate() {
             listViewModel.addPerson(name: textFieldText, frequency: Int(frequencyFieldText) ?? 7)
             presentationMode.wrappedValue.dismiss()
@@ -66,11 +67,9 @@ struct AddView: View {
     }
     
     func fieldsAppropriate() -> Bool {
-        if textFieldText.count < 3 {return false}
-        print("step 1")
-        print("\(Int(textFieldText))")
+        if textFieldText.count < 1 {return false}
+        return true
     }
-        // popup to change notifications
 }
 
 struct AddView_Previews: PreviewProvider {
