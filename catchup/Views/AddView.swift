@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UserNotifications
 /*
  view for adding a person to the list
  */
