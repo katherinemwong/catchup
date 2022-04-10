@@ -72,6 +72,9 @@ class ListViewModel: ObservableObject {
         let newPerson = personModel(name: name, dateToContact: date, frequency: frequency)
         friends.append(newPerson)
     }
+    func addFriend(newPerson: personModel) {
+        friends.append(newPerson)
+    }
     
     
 }
