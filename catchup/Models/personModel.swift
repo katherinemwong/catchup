@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct personModel: Identifiable, Hashable {
+struct personModel: Identifiable, Hashable, Codable {
     let name: String
-    var dateToContact: Date
-    var frequency: Int
+    let dateToContact: Date
+    let frequency: Int
     var id: String = UUID().uuidString
 }

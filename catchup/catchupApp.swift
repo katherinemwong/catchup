@@ -10,11 +10,14 @@ import SwiftUI
 @main
 struct catchupApp: App {
     
-    @State var notificationHandler: NotificationHandler = NotificationHandler()
-    @State var listViewModel: ListViewModel = ListViewModel()
+    @State var notificationHandler: NotificationHandler = NotificationHandler.init()
+    @State var listViewModel: ListViewModel = ListViewModel.init()
     
     var body: some Scene {
         WindowGroup {
+            
+            
+            
             NavigationView {
                 GroupsView()
             }

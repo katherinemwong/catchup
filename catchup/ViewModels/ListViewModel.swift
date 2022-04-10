@@ -12,8 +12,19 @@ class ListViewModel: ObservableObject {
     
     var notificationHandler: NotificationHandler = NotificationHandler()
     
-    @Published var familyMembers: [personModel] = []
-    @Published var friends: [personModel] = []
+    let familyMembersKey: String = "familyMembers_list"
+    @Published var familyMembers: [personModel] = [] {
+        didSet {
+            saveItems()
+        }
+    }
+    
+    let friendsKey: String = "friends_list"
+    @Published var friends: [personModel] = [] {
+        didSet {
+            saveItems()
+        }
+    }
     
     init() {
         getFamily()
@@ -21,13 +32,22 @@ class ListViewModel: ObservableObject {
     }
     
     func getFamily() {
-        
+        /*
         let newPeople = [
             personModel(name: "Katherine W.", dateToContact: Date.now.addingTimeInterval(30), frequency: 3),
             personModel(name: "John A.", dateToContact: Date.now.addingTimeInterval(100), frequency: 10),
             personModel(name: "Add your family!", dateToContact: Date.now.addingTimeInterval(100), frequency: 14)
         ]
-        familyMembers.append(contentsOf: newPeople)
+        familyMembers.append(contentsOf: newPeople)*/
+        print("retrieve")
+        guard
+            let data = UserDefaults.standard.data(forKey: familyMembersKey),
+            let savedItems = try? JSONDecoder().decode([personModel].self, from: data)
+        else {
+            print("the else")
+            return }
+        
+        self.familyMembers = savedItems
     }
     
     func deletePerson(indexSet: IndexSet) {
@@ -50,13 +70,21 @@ class ListViewModel: ObservableObject {
     }
     
     func getFriends() {
-        
+        /*
         let newPeople = [
             personModel(name: "Katherine W.", dateToContact: Date.now.addingTimeInterval(30),  frequency: 3),
             personModel(name: "John A.", dateToContact: Date.now.addingTimeInterval(100), frequency: 10),
             personModel(name: "Add your friends!", dateToContact: Date.now.addingTimeInterval(100), frequency: 14)
         ]
         friends.append(contentsOf: newPeople)
+         */
+        
+        guard
+            let data = UserDefaults.standard.data(forKey: friendsKey),
+            let savedItems = try? JSONDecoder().decode([personModel].self, from: data)
+        else { return }
+        
+        self.familyMembers = savedItems
     }
     
     func deleteFriend(indexSet: IndexSet) {
@@ -73,5 +101,14 @@ class ListViewModel: ObservableObject {
         friends.append(newPerson)
     }
     
-    
+    //converts list to .json
+    func saveItems() {
+        print("running save function")
+        if let encodedFamilyData = try? JSONEncoder().encode(familyMembers) {
+            UserDefaults.standard.set(encodedFamilyData, forKey: familyMembersKey)
+        }
+        if let encodedFriendData = try? JSONEncoder().encode(friends) {
+            UserDefaults.standard.set(encodedFriendData, forKey: friendsKey)
+        }
+    }
 }
