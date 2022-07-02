@@ -12,5 +12,4 @@ struct personModel: Identifiable, Hashable, Codable {
     let dateToContact: Date                 //next time to contact the person
     let frequency: Int                      //how often to contact the person
     var id: String = UUID().uuidString      //a unique identifier for the person
-    let parentList: String = "family"                  //the list that this person belongs in
 }
