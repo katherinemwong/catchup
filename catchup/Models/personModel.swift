@@ -7,6 +7,9 @@
 
 import Foundation
 
+/*
+ Basic data structure for a person-type object
+ */
 struct personModel: Identifiable, Hashable, Codable {
     let name: String                        //the name of the person
     let dateToContact: Date                 //next time to contact the person

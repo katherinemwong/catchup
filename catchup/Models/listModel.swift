@@ -6,7 +6,8 @@
 //
 
 /*
- Object that is the lists to be shown in the app
+ Basic data structure for a list-type object
+    stores a list of people
  */
 import Foundation
 

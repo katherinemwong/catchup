@@ -22,15 +22,16 @@ struct ListView: View {
             ForEach(listViewModel.familyMembers) {person in
                 ListRowView(person: person)
             }
+            //parameters of the List to delete/rearrange people
             .onDelete(perform: listViewModel.deletePerson)
             .onMove(perform: listViewModel.movePerson)
-            //ListRowView(name: "katherchin")
         }
-            .listStyle(PlainListStyle())
-            .navigationTitle("catch-up with")
-            .navigationBarItems(leading: EditButton(),
-                                trailing:
-                                    NavigationLink("Add", destination: AddView())
+        //parameters of the body View
+        .listStyle(PlainListStyle())
+        .navigationTitle("catch-up with")
+        .navigationBarItems(leading: EditButton(),
+                            trailing:
+                                NavigationLink("Add", destination: AddView())
             )
     }
 }

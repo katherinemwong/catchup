@@ -25,18 +25,21 @@ struct AddView: View {
     var body: some View {
         VStack{
             VStack {
+                //define text field with "name" as background with pointer $textfieldtext
                 TextField("name", text: $textFieldText)
                     .padding(.horizontal)
                     .frame(height: 60)
                     .background(Color("skyBlue").opacity(0.3))
                 .cornerRadius(6)
                 
+                //another text field for the frequency data
                 TextField("contact this person every # of days", text: $frequencyFieldText)
                     .padding(.horizontal)
                     .frame(height: 60)
                     .background(Color("skyBlue").opacity(0.3))
                 .cornerRadius(6)
                 
+                //save button
                 Button(action: saveButtonPressed,   label: {
                     Text("Save")
                         .foregroundColor(.white)
@@ -53,11 +56,12 @@ struct AddView: View {
         }
     }
     
-   private func getAlert() -> Alert {
+    private func getAlert() -> Alert {
         return Alert(title: Text(alertTitle))
     }
     
-  private func Notification() {
+    //ask for permission
+    private func Notification() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge,
             .sound]) { success, error in
                 if success {
@@ -93,9 +97,11 @@ struct AddView: View {
         notificationHandler.recordNotification(person: person, notif: request)
     }
     
-  private func saveButtonPressed() {
+    //add person to the list
+    private func saveButtonPressed() {
         Notification() // popup to change notifications
         if fieldsAppropriate() {
+            //create person object
             let num = Int(frequencyFieldText) ?? 7
             let date: Date = Date.now.addingTimeInterval(Double(24*60*60*num))
             let person = personModel(name: textFieldText, dateToContact: date, frequency: num)
@@ -105,6 +111,7 @@ struct AddView: View {
         }
     }
     
+    //check if person has proper name
     private func fieldsAppropriate() -> Bool {
         if textFieldText.count < 1 {
             alertTitle = "😵‍💫\nYou must include a name for your family member."
@@ -115,6 +122,7 @@ struct AddView: View {
     }
 }
 
+//preview provider
 struct AddView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{

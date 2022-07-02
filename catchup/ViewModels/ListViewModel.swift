@@ -15,37 +15,30 @@ class ListViewModel: ObservableObject {
     let familyMembersKey: String = "familyMembers_list"
     @Published var familyMembers: [personModel] = []
     
-    let friendsKey: String = "friends_list"
-    @Published var friends: [personModel] = []
-    
+    //when initialized pull data from storage to rebuild the list
     init() {
-        getFamily()
-        //getFriends()
+        readStorage()
     }
     
-    func getFamily() {
-        /*
-        let newPeople = [
-            personModel(name: "Katherine W.", dateToContact: Date.now.addingTimeInterval(30), frequency: 3),
-            personModel(name: "John A.", dateToContact: Date.now.addingTimeInterval(100), frequency: 10),
-            personModel(name: "Add your family!", dateToContact: Date.now.addingTimeInterval(100), frequency: 14)
-        ]
-        familyMembers.append(contentsOf: newPeople)*/
+    //attempts to retrieve list from user preferences data
+    func readStorage() {
         guard
             let data = UserDefaults.standard.data(forKey: familyMembersKey),
             let savedItems = try? JSONDecoder().decode([personModel].self, from: data)
         else {
             return }
-        
+    
         familyMembers = savedItems
     }
     
+    //remove a person from the list
     func deletePerson(indexSet: IndexSet) {
         notificationHandler.activeNotifications.removeValue(forKey: familyMembers[indexSet.first!])
         familyMembers.remove(atOffsets: indexSet)
         saveItems()
     }
     
+    //relocate person in the list (based on the offset provided by the built in list editor, see ListView)
     func movePerson(from: IndexSet, to: Int) {
         familyMembers.move(fromOffsets: from, toOffset: to)
         saveItems()

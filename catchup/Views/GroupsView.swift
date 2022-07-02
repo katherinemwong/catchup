@@ -7,11 +7,12 @@
 
 import SwiftUI
 
+/*
+ View of the different lists of people
+ */
 struct GroupsView: View {
     
     
-    //use this variable to access the ListViewModel.familyMembers list
-    //you can create a GroupListView File (similar to the ListView) to make entried into the list. 
     @EnvironmentObject var listViewModel: ListViewModel
     
     var body: some View {
@@ -36,7 +37,8 @@ struct GroupsView: View {
                         
                             Spacer()
                         }
-                            //display first few members in list
+                            //display first 4 members in list
+                            //calls GroupsRowView() up to 4 times
                             ForEach(listViewModel.familyMembers.prefix(4)) {
                                 person in
                                 GroupsRowView(person: person)
@@ -48,7 +50,8 @@ struct GroupsView: View {
                     .padding(.horizontal)
                     Spacer()
                 }
-                .onAppear(perform: listViewModel.getFamily)
+                //when this block is shown, create the list of people from storage
+                .onAppear(perform: listViewModel.readStorage)
             }
         }
         .background(Color("skyBlue").opacity(0.4))
@@ -57,6 +60,8 @@ struct GroupsView: View {
 }
 //preview provider
 struct GroupsListView_Previews: PreviewProvider {
+    var previewPerson = personModel(name: "Katherine W.", dateToContact: Date.now.addingTimeInterval(600), frequency: 4)
+    
     static var previews: some View {
         NavigationView{
             GroupsView()
