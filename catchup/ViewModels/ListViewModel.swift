@@ -62,51 +62,10 @@ class ListViewModel: ObservableObject {
         saveItems()
     }
     
-    func getFriends() {
-        /*
-        let newPeople = [
-            personModel(name: "Katherine W.", dateToContact: Date.now.addingTimeInterval(30),  frequency: 3),
-            personModel(name: "John A.", dateToContact: Date.now.addingTimeInterval(100), frequency: 10),
-            personModel(name: "Add your friends!", dateToContact: Date.now.addingTimeInterval(100), frequency: 14)
-        ]
-        friends.append(contentsOf: newPeople)
-         */
-        
-        guard
-            let data = UserDefaults.standard.data(forKey: friendsKey),
-            let savedItems = try? JSONDecoder().decode([personModel].self, from: data)
-        else { return }
-        
-        friends = savedItems
-    }
-    
-    func deleteFriend(indexSet: IndexSet) {
-        friends.remove(atOffsets: indexSet)
-        saveItems()
-    }
-    
-    func moveFriend(from: IndexSet, to: Int) {
-        friends.move(fromOffsets: from, toOffset: to)
-        saveItems()
-    }
-    
-    func addFriend(name: String, date: Date, frequency: Int) {
-        let newPerson = personModel(name: name, dateToContact: date, frequency: frequency)
-        friends.append(newPerson)
-        saveItems()
-    }
-    func addFriend(newPerson: personModel) {
-        friends.append(newPerson)
-        saveItems()
-    }
-    
     //converts list to .json
     func saveItems() {
         if let encodedFamilyData = try? JSONEncoder().encode(familyMembers) {
             UserDefaults.standard.set(encodedFamilyData, forKey: familyMembersKey)
-        }
-        if let encodedFriendData = try? JSONEncoder().encode(friends) {
-            UserDefaults.standard.set(encodedFriendData, forKey: friendsKey)
         }
     }
 }
