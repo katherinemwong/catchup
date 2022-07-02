@@ -20,7 +20,7 @@ class ListViewModel: ObservableObject {
     
     init() {
         getFamily()
-        getFriends()
+        //getFriends()
     }
     
     func getFamily() {

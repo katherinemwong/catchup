@@ -9,7 +9,7 @@ import SwiftUI
 import UserNotifications
 /*
  view for adding a person to the list
- */
+ 
 struct AddViewFriends: View {
     
     @State var alertTitle: String = ""
@@ -123,4 +123,4 @@ struct AddViewFriends_Previews: PreviewProvider {
     }
 }
 
-
+*/

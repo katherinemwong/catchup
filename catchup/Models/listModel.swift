@@ -6,7 +6,7 @@
 //
 
 /*
- List
+ Object that is the lists to be shown in the app
  */
 import Foundation
 

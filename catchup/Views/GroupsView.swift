@@ -15,15 +15,19 @@ struct GroupsView: View {
     @EnvironmentObject var listViewModel: ListViewModel
     
     var body: some View {
+        //view container for the two lists of people
         ScrollView{
+            //link to the listView view for family
             NavigationLink(destination: ListView()) {
                 ZStack{
+                    
                     Rectangle()
                         .frame(height: 300)
                         .cornerRadius(30)
                         .padding()
                         .foregroundColor(Color("skyBlue"))
                     VStack{
+                        
                         HStack{
                             Text("Family")
                                 .font(Font.custom("Arial Rounded MT Bold", size: 50))
@@ -32,7 +36,7 @@ struct GroupsView: View {
                         
                             Spacer()
                         }
-                        
+                            //display first few members in list
                             ForEach(listViewModel.familyMembers.prefix(4)) {
                                 person in
                                 GroupsRowView(person: person)
@@ -46,7 +50,8 @@ struct GroupsView: View {
                 }
                 .onAppear(perform: listViewModel.getFamily)
             }
-            
+            //link to the listViewFriends view for friends
+            /*
             NavigationLink(destination: ListViewFriends()) {
                 ZStack{
                     Rectangle()
@@ -62,7 +67,7 @@ struct GroupsView: View {
                                 .foregroundColor(.white)
                             Spacer()
                         }
-                        
+                        // show the first few friends
                         ForEach(listViewModel.friends.prefix(4)) {
                             person in
                             GroupsRowView(person: person)
@@ -76,12 +81,13 @@ struct GroupsView: View {
                 }
                 .onAppear(perform: listViewModel.getFriends)
             }
+             */
         }
         .background(Color("skyBlue").opacity(0.4))
         
     }
 }
-
+//preview provider
 struct GroupsListView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
