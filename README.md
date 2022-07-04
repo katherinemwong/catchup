@@ -18,6 +18,7 @@ NavigationView Structure:
 
 1. Setup
    - Initialize `ListViewModel` (read/import stored data)
+     - `ListViewModel` stores each `PersonModel` in a globally accessible variable, as well as many functions for updating the list.
    - Create `NavigationView` and open `GroupsView`
 2. GroupsView
    - `ScrollView` with a `NavigationLink` to `ListView` for each group of people (currently only includes family list)
