@@ -60,9 +60,16 @@ struct GroupsView: View {
 }
 //preview provider
 struct GroupsListView_Previews: PreviewProvider {
-    var previewPerson = PersonModel(name: "Katherine W.", dateToContact: Date.now.addingTimeInterval(600), frequency: 4)
-    
     static var previews: some View {
+        
+        let person1 = PersonModel(name: "Katherine W.", dateToContact: Date.now.addingTimeInterval(600), frequency: 4)
+        let person2 = PersonModel(name: "John A.", dateToContact: Date.now.addingTimeInterval(600), frequency: 2)
+        let person3 = PersonModel(name: "UCSD", dateToContact: Date.now.addingTimeInterval(600), frequency: 10)
+        
+        var group1 = GroupModel(name: "LosersClub", members: [person1, person2, person3])
+        
+        //GroupsView(group1) should produce a valid preview with members if code is built well.
+        
         NavigationView{
             GroupsView()
         }
