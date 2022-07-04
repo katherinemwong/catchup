@@ -10,14 +10,14 @@ import UserNotifications
 
 class NotificationHandler: ObservableObject {
     
-    @Published var activeNotifications: [personModel : UNNotificationRequest] = [:]
+    @Published var activeNotifications: [PersonModel : UNNotificationRequest] = [:]
     
     init() {
         
     }
     
     //removes a notification
-    func removeNotification(person: personModel) {
+    func removeNotification(person: PersonModel) {
         let notif: [String] = [
             activeNotifications[person]!.identifier
             ]
@@ -25,7 +25,7 @@ class NotificationHandler: ObservableObject {
         activeNotifications.removeValue(forKey: person)
     }
     
-    func recordNotification(person: personModel, notif: UNNotificationRequest) {
+    func recordNotification(person: PersonModel, notif: UNNotificationRequest) {
         activeNotifications.updateValue(notif, forKey: person)
     }
 }

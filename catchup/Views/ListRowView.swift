@@ -15,7 +15,7 @@ let formatter = DateFormatter()
 struct ListRowView: View {
     
     //this variable is instantiated with a person when the ListRowView is created
-    let person: personModel
+    let person: PersonModel
     
     var body: some View {
         ZStack{
@@ -34,7 +34,7 @@ struct ListRowView: View {
 // This generates the preview window
 struct ListRowView_Previews: PreviewProvider {
     static var previews: some View {
-        ListRowView(person: personModel(name: "Katherine W.", dateToContact: Date.now.addingTimeInterval(800), frequency: 4))
+        ListRowView(person: PersonModel(name: "Katherine W.", dateToContact: Date.now.addingTimeInterval(800), frequency: 4))
             .previewLayout(.sizeThatFits)
     }
         

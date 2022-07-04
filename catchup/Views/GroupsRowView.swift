@@ -13,7 +13,7 @@ import SwiftUI
  only up to the first 3 members in the list are shown.
  */
 struct GroupsRowView: View {
-    let person: personModel
+    let person: PersonModel
     //let name: String
     //let contactDate: Date?
     //checkDate(name, contactDate)
@@ -32,7 +32,7 @@ struct GroupsRowView: View {
 
 struct GroupsRowView_Previews: PreviewProvider {
     static var previews: some View {
-        GroupsRowView(person: personModel(name: "Katherine W.", dateToContact: Date.now.addingTimeInterval(600), frequency: 4))
+        GroupsRowView(person: PersonModel(name: "Katherine W.", dateToContact: Date.now.addingTimeInterval(600), frequency: 4))
             .previewLayout(.sizeThatFits)
             .background(Color("skyBlue").opacity(0.4))
     }

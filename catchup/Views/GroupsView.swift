@@ -60,7 +60,7 @@ struct GroupsView: View {
 }
 //preview provider
 struct GroupsListView_Previews: PreviewProvider {
-    var previewPerson = personModel(name: "Katherine W.", dateToContact: Date.now.addingTimeInterval(600), frequency: 4)
+    var previewPerson = PersonModel(name: "Katherine W.", dateToContact: Date.now.addingTimeInterval(600), frequency: 4)
     
     static var previews: some View {
         NavigationView{

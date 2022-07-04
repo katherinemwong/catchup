@@ -81,7 +81,7 @@ struct AddView: View {
     }
     
     //Submit Request for Notification
-    private func addNotification(person: personModel) {
+    private func addNotification(person: PersonModel) {
         let content = UNMutableNotificationContent()
         content.title = "catchup"
         content.subtitle = "Catch-up with \(textFieldText)!"
@@ -104,7 +104,7 @@ struct AddView: View {
             //create person object
             let num = Int(frequencyFieldText) ?? 7
             let date: Date = Date.now.addingTimeInterval(Double(24*60*60*num))
-            let person = personModel(name: textFieldText, dateToContact: date, frequency: num)
+            let person = PersonModel(name: textFieldText, dateToContact: date, frequency: num)
             listViewModel.addPerson(newPerson: person)
             presentationMode.wrappedValue.dismiss()
             addNotification(person: person)

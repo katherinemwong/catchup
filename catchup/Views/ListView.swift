@@ -29,10 +29,7 @@ struct ListView: View {
         //parameters of the body View
         .listStyle(PlainListStyle())
         .navigationTitle("catch-up with")
-        .navigationBarItems(leading: EditButton(),
-                            trailing:
-                                NavigationLink("Add", destination: AddView())
-            )
+        .navigationBarItems(trailing: NavigationLink("Add", destination: AddView()))
     }
 }
 

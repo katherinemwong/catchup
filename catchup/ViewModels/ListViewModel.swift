@@ -13,7 +13,7 @@ class ListViewModel: ObservableObject {
     var notificationHandler: NotificationHandler = NotificationHandler()
     
     let familyMembersKey: String = "familyMembers_list"
-    @Published var familyMembers: [personModel] = []
+    @Published var familyMembers: [PersonModel] = []
     
     //when initialized pull data from storage to rebuild the list
     init() {
@@ -24,7 +24,7 @@ class ListViewModel: ObservableObject {
     func readStorage() {
         guard
             let data = UserDefaults.standard.data(forKey: familyMembersKey),
-            let savedItems = try? JSONDecoder().decode([personModel].self, from: data)
+            let savedItems = try? JSONDecoder().decode([PersonModel].self, from: data)
         else {
             return }
     
@@ -45,12 +45,12 @@ class ListViewModel: ObservableObject {
     }
     
     func addPerson(name: String, date: Date, frequency: Int) {
-        let newPerson = personModel(name: name, dateToContact: date, frequency: frequency)
+        let newPerson = PersonModel(name: name, dateToContact: date, frequency: frequency)
         familyMembers.append(newPerson)
         saveItems()
     }
     
-    func addPerson(newPerson: personModel) {
+    func addPerson(newPerson: PersonModel) {
         familyMembers.append(newPerson)
         saveItems()
     }
