@@ -10,6 +10,7 @@
 		7630D1D32802BA3D00C92C99 /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7630D1D22802BA3D00C92C99 /* NotificationHandler.swift */; };
 		7630D1D52802BCD400C92C99 /* GroupsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7630D1D42802BCD400C92C99 /* GroupsView.swift */; };
 		76DB4B472870E846006E07BF /* GroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DB4B462870E846006E07BF /* GroupModel.swift */; };
+		CB4DD0582876BE650076CB25 /* GroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4DD0572876BE650076CB25 /* GroupViewModel.swift */; };
 		CBE266702801FF1900E24EC1 /* catchupApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE2666F2801FF1900E24EC1 /* catchupApp.swift */; };
 		CBE266722801FF1900E24EC1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE266712801FF1900E24EC1 /* ContentView.swift */; };
 		CBE266742801FF1F00E24EC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBE266732801FF1F00E24EC1 /* Assets.xcassets */; };
@@ -22,7 +23,7 @@
 		CBE266AC280262A400E24EC1 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE266AB280262A400E24EC1 /* AddView.swift */; };
 		CBE266AE280262D800E24EC1 /* ListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE266AD280262D800E24EC1 /* ListRowView.swift */; };
 		CBE266B02802631200E24EC1 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE266AF2802631200E24EC1 /* ListView.swift */; };
-		CBE266B42802760600E24EC1 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE266B32802760600E24EC1 /* ListViewModel.swift */; };
+		CBE266B42802760600E24EC1 /* PersonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE266B32802760600E24EC1 /* PersonViewModel.swift */; };
 		CBE266B62802D79D00E24EC1 /* GroupsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE266B52802D79C00E24EC1 /* GroupsRowView.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		7630D1D22802BA3D00C92C99 /* NotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandler.swift; sourceTree = "<group>"; };
 		7630D1D42802BCD400C92C99 /* GroupsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsView.swift; sourceTree = "<group>"; };
 		76DB4B462870E846006E07BF /* GroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupModel.swift; sourceTree = "<group>"; };
+		CB4DD0572876BE650076CB25 /* GroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewModel.swift; sourceTree = "<group>"; };
 		CBE2666C2801FF1900E24EC1 /* catchup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = catchup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBE2666F2801FF1900E24EC1 /* catchupApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = catchupApp.swift; sourceTree = "<group>"; };
 		CBE266712801FF1900E24EC1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -63,7 +65,7 @@
 		CBE266AB280262A400E24EC1 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		CBE266AD280262D800E24EC1 /* ListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowView.swift; sourceTree = "<group>"; };
 		CBE266AF2802631200E24EC1 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
-		CBE266B32802760600E24EC1 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		CBE266B32802760600E24EC1 /* PersonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewModel.swift; sourceTree = "<group>"; };
 		CBE266B52802D79C00E24EC1 /* GroupsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -177,7 +179,8 @@
 		CBE266B2280275F500E24EC1 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				CBE266B32802760600E24EC1 /* ListViewModel.swift */,
+				CBE266B32802760600E24EC1 /* PersonViewModel.swift */,
+				CB4DD0572876BE650076CB25 /* GroupViewModel.swift */,
 				7630D1D22802BA3D00C92C99 /* NotificationHandler.swift */,
 			);
 			path = ViewModels;
@@ -315,13 +318,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBE266AC280262A400E24EC1 /* AddView.swift in Sources */,
-				CBE266B42802760600E24EC1 /* ListViewModel.swift in Sources */,
+				CBE266B42802760600E24EC1 /* PersonViewModel.swift in Sources */,
 				CBE266722801FF1900E24EC1 /* ContentView.swift in Sources */,
 				CBE266B02802631200E24EC1 /* ListView.swift in Sources */,
 				CBE266AE280262D800E24EC1 /* ListRowView.swift in Sources */,
 				7630D1D32802BA3D00C92C99 /* NotificationHandler.swift in Sources */,
 				CBE266A42802611C00E24EC1 /* PersonModel.swift in Sources */,
 				CBE266702801FF1900E24EC1 /* catchupApp.swift in Sources */,
+				CB4DD0582876BE650076CB25 /* GroupViewModel.swift in Sources */,
 				7630D1D52802BCD400C92C99 /* GroupsView.swift in Sources */,
 				CBE266B62802D79D00E24EC1 /* GroupsRowView.swift in Sources */,
 				76DB4B472870E846006E07BF /* GroupModel.swift in Sources */,
@@ -483,6 +487,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"catchup/Preview Content\"";
+				DEVELOPMENT_TEAM = FA79DJDQXD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = catchup/Info.plist;
@@ -513,6 +518,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"catchup/Preview Content\"";
+				DEVELOPMENT_TEAM = FA79DJDQXD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = catchup/Info.plist;

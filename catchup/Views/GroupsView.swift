@@ -14,10 +14,11 @@ struct GroupsView: View {
     
     
     @EnvironmentObject var listViewModel: ListViewModel
+    @EnvironmentObject var groupViewModel: GroupViewModel
     
     var body: some View {
         //view container for the two lists of people
-        ScrollView{
+        /*ScrollView{
             //link to the listView view for family
             NavigationLink(destination: ListView()) {
                 ZStack{
@@ -53,7 +54,20 @@ struct GroupsView: View {
                 //when this block is shown, create the list of people from storage
                 .onAppear(perform: listViewModel.readStorage)
             }
+        }*/
+        List{
+            //generate a new row entry into the list for each person
+            ForEach(groupViewModel.contactGroups) {group in
+                GroupsRowView(group: group)
+            }
+            //parameters of the List to delete/rearrange people
+            .onDelete(perform: groupViewModel.deleteGroup)
+            .onMove(perform: groupViewModel.moveGroup)
         }
+        //parameters of the body View
+        .listStyle(PlainListStyle())
+        .navigationTitle("contact groups")
+        .navigationBarItems(trailing: NavigationLink("Add", destination: AddView()))
         .background(Color("skyBlue").opacity(0.4))
         
     }
@@ -66,13 +80,14 @@ struct GroupsListView_Previews: PreviewProvider {
         let person2 = PersonModel(name: "John A.", dateToContact: Date.now.addingTimeInterval(600), frequency: 2)
         let person3 = PersonModel(name: "UCSD", dateToContact: Date.now.addingTimeInterval(600), frequency: 10)
         
-        var group1 = GroupModel(name: "LosersClub", members: [person1, person2, person3])
+        //var group1 = GroupModel(name: "LosersClub", members: [person1, person2, person3])
         
         //GroupsView(group1) should produce a valid preview with members if code is built well.
         
         NavigationView{
             GroupsView()
         }
-        .environmentObject(ListViewModel())
+        //.environmentObject(ListViewModel())
+        .environmentObject(GroupViewModel())
     }
 }

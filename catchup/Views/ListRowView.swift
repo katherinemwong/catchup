@@ -10,12 +10,15 @@ import SwiftUI
 let formatter = DateFormatter()
 
 /*
- View for a single person in the list of people, each person gets a seperate line, which are all stacked toegther.
+ View for a single person in the list of people, each person gets a separate line, which are all stacked toegther.
  */
 struct ListRowView: View {
     
     //this variable is instantiated with a person when the ListRowView is created
     let person: PersonModel
+    //let name: String
+    //let contactDate: Date?
+    //checkDate(name, contactDate)
     
     var body: some View {
         ZStack{
@@ -23,7 +26,7 @@ struct ListRowView: View {
                 //display person's name and how often they are contacted
                 Text(person.name)
                 Spacer()
-                Text("contact every \(person.frequency) days")
+                //Text("contact every \(person.frequency) days")
             }
             .foregroundColor(Color("darkBlue"))
             .cornerRadius(8)
@@ -34,7 +37,8 @@ struct ListRowView: View {
 // This generates the preview window
 struct ListRowView_Previews: PreviewProvider {
     static var previews: some View {
-        ListRowView(person: PersonModel(name: "Katherine W.", dateToContact: Date.now.addingTimeInterval(800), frequency: 4))
+        // @kat: un-hardcode this LMAO
+        ListRowView(person: PersonModel(name: "Kat", dateToContact: Date.now.addingTimeInterval(600), frequency: 4))
             .previewLayout(.sizeThatFits)
     }
         

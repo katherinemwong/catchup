@@ -12,7 +12,7 @@
 import Foundation
 
 struct GroupModel: Identifiable, Hashable, Codable {
-    var name: String                        //the name of the list
+    let name: String                        //the name of the list
     var id: String = UUID().uuidString      //a unique identifier for the list
     var members: [PersonModel] = []         //list of people in the list
     var version: String = "1.0"             //track version of data for upgrade purposes

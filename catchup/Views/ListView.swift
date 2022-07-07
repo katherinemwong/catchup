@@ -13,12 +13,13 @@ import SwiftUI
 struct ListView: View {
     
     @EnvironmentObject var listViewModel: ListViewModel
+    //@EnvironmentObject var groupViewModel: GroupViewModel
+    //@State var groups: [GroupModel]
     
     var body: some View {
         
-        
         List {
-            //generate a new entry into the list for each person
+            //generate a new row entry into the list for each person
             ForEach(listViewModel.familyMembers) {person in
                 ListRowView(person: person)
             }
@@ -40,5 +41,6 @@ struct ListView_Previews: PreviewProvider {
             ListView()
         }
         .environmentObject(ListViewModel())
+        //.environmentObject(GroupViewModel())
     }
 }

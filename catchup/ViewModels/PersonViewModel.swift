@@ -14,6 +14,7 @@ class ListViewModel: ObservableObject {
     
     let familyMembersKey: String = "familyMembers_list"
     @Published var familyMembers: [PersonModel] = []
+    //@Published var familyMembers: [GroupModel] = []
     
     //when initialized pull data from storage to rebuild the list
     init() {

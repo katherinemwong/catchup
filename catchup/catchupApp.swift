@@ -11,7 +11,8 @@ import SwiftUI
 struct catchupApp: App {
     
     @State var notificationHandler: NotificationHandler = NotificationHandler.init()
-    @State var listViewModel: ListViewModel = ListViewModel.init()
+    @StateObject var listViewModel: ListViewModel = ListViewModel.init()
+    @StateObject var groupViewModel: GroupViewModel = GroupViewModel.init()
     
     var body: some Scene {
         WindowGroup {
@@ -20,6 +21,7 @@ struct catchupApp: App {
                 GroupsView()
             }
             .environmentObject(listViewModel)
+            .environmentObject(groupViewModel)
             .environmentObject(notificationHandler)
         }
     }

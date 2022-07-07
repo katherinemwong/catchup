@@ -13,15 +13,15 @@ import SwiftUI
  only up to the first 3 members in the list are shown.
  */
 struct GroupsRowView: View {
-    let person: PersonModel
+    //let person: PersonModel
     //let name: String
     //let contactDate: Date?
     //checkDate(name, contactDate)
-    
+    let group: GroupModel
     var body: some View {
         ZStack{
             HStack {
-                Text(person.name)
+                Text(group.name)
                     .padding(5)
             }
             .foregroundColor(Color.white)
@@ -32,7 +32,7 @@ struct GroupsRowView: View {
 
 struct GroupsRowView_Previews: PreviewProvider {
     static var previews: some View {
-        GroupsRowView(person: PersonModel(name: "Katherine W.", dateToContact: Date.now.addingTimeInterval(600), frequency: 4))
+        GroupsRowView(group: GroupModel(name: "Friends"))
             .previewLayout(.sizeThatFits)
             .background(Color("skyBlue").opacity(0.4))
     }
