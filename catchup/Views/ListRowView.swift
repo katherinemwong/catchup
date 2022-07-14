@@ -26,7 +26,7 @@ struct ListRowView: View {
                 //display person's name and how often they are contacted
                 Text(person.name)
                 Spacer()
-                //Text("contact every \(person.frequency) days")
+                Text("\(person.frequency) days")
             }
             .foregroundColor(Color("darkBlue"))
             .cornerRadius(8)

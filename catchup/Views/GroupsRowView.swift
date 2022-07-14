@@ -10,19 +10,17 @@ import SwiftUI
 /*
  view for each of the individual members shows in the GroupsView
  
- only up to the first 3 members in the list are shown.
+ only up to the first 3 members in the list are shown. (to be implemented)
  */
 struct GroupsRowView: View {
-    //let person: PersonModel
-    //let name: String
-    //let contactDate: Date?
-    //checkDate(name, contactDate)
+    
     let group: GroupModel
     var body: some View {
         ZStack{
             HStack {
                 Text(group.name)
                     .padding(5)
+                    .foregroundColor(Color("darkBlue"))
             }
             .foregroundColor(Color.white)
             .cornerRadius(8)

@@ -15,7 +15,7 @@ class GroupViewModel: ObservableObject {
     //var notificationHandler: NotificationHandler = NotificationHandler()
     
     let groupKey: String = "group_list"
-    //@Published var familyMembers: [PersonModel] = []
+    //@Published var personList: [PersonModel] = []
     @Published var contactGroups: [GroupModel] = []
     
     //when initialized pull data from storage to rebuild the list
@@ -48,13 +48,13 @@ class GroupViewModel: ObservableObject {
     }
     
     func addGroup(name: String) {
-        let group = GroupModel(name: name)
-        contactGroups.append(group)
+        let newGroup = GroupModel(name: name)
+        contactGroups.append(newGroup)
         saveItems()
     }
     
     //func addPerson(newPerson: PersonModel) {
-    //    familyMembers.append(newPerson)
+    //    personList.append(newPerson)
     //    saveItems()
     //}
     

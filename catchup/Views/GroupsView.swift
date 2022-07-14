@@ -55,20 +55,24 @@ struct GroupsView: View {
                 .onAppear(perform: listViewModel.readStorage)
             }
         }*/
+        
         List{
-            //generate a new row entry into the list for each person
+            //generate a new row entry into the list for each GROUP
             ForEach(groupViewModel.contactGroups) {group in
-                GroupsRowView(group: group)
+                // TO-DO: i think we should make a person class bc when u add contacts, they are all added to ListView. So make objects using class and store in an array
+                NavigationLink(destination: ListView()) {
+                    GroupsRowView(group: group)
+                }
             }
-            //parameters of the List to delete/rearrange people
+            //parameters of the List to delete/rearrange GROUPS
             .onDelete(perform: groupViewModel.deleteGroup)
             .onMove(perform: groupViewModel.moveGroup)
         }
         //parameters of the body View
         .listStyle(PlainListStyle())
         .navigationTitle("contact groups")
-        .navigationBarItems(trailing: NavigationLink("Add", destination: AddView()))
-        .background(Color("skyBlue").opacity(0.4))
+        .navigationBarItems(trailing: NavigationLink("Add", destination: AddGroupView()))
+        .background(Color.white)
         
     }
 }
@@ -76,18 +80,10 @@ struct GroupsView: View {
 struct GroupsListView_Previews: PreviewProvider {
     static var previews: some View {
         
-        let person1 = PersonModel(name: "Katherine W.", dateToContact: Date.now.addingTimeInterval(600), frequency: 4)
-        let person2 = PersonModel(name: "John A.", dateToContact: Date.now.addingTimeInterval(600), frequency: 2)
-        let person3 = PersonModel(name: "UCSD", dateToContact: Date.now.addingTimeInterval(600), frequency: 10)
-        
-        //var group1 = GroupModel(name: "LosersClub", members: [person1, person2, person3])
-        
-        //GroupsView(group1) should produce a valid preview with members if code is built well.
-        
         NavigationView{
             GroupsView()
         }
-        //.environmentObject(ListViewModel())
+        .environmentObject(ListViewModel())
         .environmentObject(GroupViewModel())
     }
 }
